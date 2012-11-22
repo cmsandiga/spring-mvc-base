@@ -1,0 +1,42 @@
+<project name="spring-mvc-base">
+	<property name="tomcat.home" value="C:/cngnet/Programas/apache-tomcat-6.0.35" />
+	<property name="tomcat.webapps" value="${tomcat.home}/webapps" />
+	<property name="project.name" value="spring-mvc-base" />
+	
+	<target name="do_all">
+		<antcall target="tomcat-stop" />
+		<antcall target="deploy-app" />
+		<antcall target="tomcat-start" />
+	</target>
+ 
+	<target name="deploy-app">
+		<echo message="Deploying..." />
+		<delete dir="${tomcat.webapps}/${project.name}" />
+		<delete file="${tomcat.webapps}/${project.name}.war" />
+		<copy todir="${tomcat.webapps}" file="target/${project.name}.war" />
+	</target>
+
+	<target name="update-jsp-webapp">
+		<copy todir="${tomcat.webapps}/${project.name}">
+			<fileset dir="src/main/webapp">
+				<include name="**/*.jsp" />
+				<include name="**/*.js" />
+				<include name="**/*.css" />
+			</fileset>
+		</copy>
+	</target>
+
+	<target name="tomcat-start">
+		<java jar="${tomcat.home}/bin/bootstrap.jar" fork="true">
+			<jvmarg value="-Dcatalina.home=${tomcat.home}" />
+		</java>
+	</target>
+
+	<target name="tomcat-stop">
+		<java jar="${tomcat.home}/bin/bootstrap.jar" fork="true">
+			<jvmarg value="-Dcatalina.home=${tomcat.home}" />
+			<arg line="stop" />
+		</java>
+	</target>
+
+</project>
