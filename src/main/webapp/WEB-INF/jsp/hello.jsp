@@ -6,7 +6,8 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 	<title>Insert title here</title>
 	<!-- Bootstrap -->
-    <link href="<%=request.getContextPath()%>/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="<%=request.getContextPath()%>/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="<%=request.getContextPath()%>/resources/css/spring-mvc-base.css" rel="stylesheet" media="screen">
 </head> 
 <body>
 	<div class="container">
@@ -17,7 +18,7 @@
 	        <label class="checkbox">
 	          <input type="checkbox" value="remember-me"> Remember me
 	        </label>
-	        <button class="btn btn-large btn-primary" type="submit">Sign in</button>
+	        <button class="btn btn-medium btn-primary" type="submit">Sign in</button>
 	     </form>
      </div>
 </body>
