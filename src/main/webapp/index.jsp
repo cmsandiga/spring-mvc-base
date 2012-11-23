@@ -1,4 +1,4 @@
 <%
-	String redirectURL = request.getContextPath() + "/welcome.htm";
+	String redirectURL = request.getContextPath() + "/login.htm";
 	response.sendRedirect(redirectURL);
 %>

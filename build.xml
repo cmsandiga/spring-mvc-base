@@ -3,11 +3,6 @@
 	<property name="tomcat.webapps" value="${tomcat.home}/webapps" />
 	<property name="project.name" value="spring-mvc-base" />
 	
-	<target name="do_all">
-		<antcall target="tomcat-stop" />
-		<antcall target="deploy-app" />
-		<antcall target="tomcat-start" />
-	</target>
  
 	<target name="deploy-app">
 		<echo message="Deploying..." />
@@ -22,6 +17,9 @@
 				<include name="**/*.jsp" />
 				<include name="**/*.js" />
 				<include name="**/*.css" />
+			</fileset>
+			<fileset dir="target/${project.name}/WEB-INF/classes">
+				<include name="**/*.class" />
 			</fileset>
 		</copy>
 	</target>
