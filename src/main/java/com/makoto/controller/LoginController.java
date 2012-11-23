@@ -24,4 +24,23 @@ public class LoginController {
 	public String onSubmit(){
 		return "welcome";
 	}
+	
+	class UsuarioForm{
+		private String user;
+		private String password;
+		public UsuarioForm(){			
+		}
+		public String getUser(){
+			return user;
+		}
+		public String getPassword(){
+			return password;
+		}
+		public void setUser(String user){
+			this.user=user;		
+		}
+		public void setPassword(String password){
+			this.password=password;
+		}
+	}
 }
