@@ -11,7 +11,7 @@
 	</welcome-file-list>
 	
 	<servlet>
-		<servlet-name>mvc-dispatcher</servlet-name>
+		<servlet-name>spring-mvc-base</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
 		<init-param>
 			<param-name>contextConfigLocation</param-name>
@@ -22,12 +22,14 @@
 	
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
-		<param-value>classpath:/com/makoto/config/security-context.xml</param-value>
+		<param-value>
+			classpath:/com/makoto/config/security-context.xml
+		</param-value>
 	</context-param>
 	
 	<servlet-mapping>
-		<servlet-name>mvc-dispatcher</servlet-name>
-		<url-pattern>/</url-pattern>
+		<servlet-name>spring-mvc-base</servlet-name>
+		<url-pattern>*.htm</url-pattern>
 	</servlet-mapping>
 	
 	<listener>
